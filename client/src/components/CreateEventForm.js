@@ -24,13 +24,15 @@ function CreateEventForm({ onAddEvent }) {
 
     try {
       const { data } = await createEvent(form);
-      onAddEvent(data); // add the new event to list
+      onAddEvent(data);
       alert("🎉 Event Created!");
       setForm({ title: "", date: "", location: "", imageUrl: "" });
-    } catch (error) {
-      console.error("Error creating event:", error);
-      alert("Failed to create event!");
+    } catch (err) {
+      console.error("❌ Full Axios error:", err);
+      console.error("❌ Error response:", err?.response);
+      alert("❌ Failed to create event: " + (err?.response?.data?.message || err.message));
     }
+    
   };
 
   return (

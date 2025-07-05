@@ -4,14 +4,17 @@ const Event = require("../models/Event");
 const Registration = require("../models/Registration");
 
 
+
 router.get("/", async (req, res) => {
   try {
     const events = await Event.find();
     res.status(200).json(events);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    console.error("Fetch events error:", error);
+    res.status(500).json({ message: "Server error: " + error.message });
   }
 });
+
 
 
 router.get("/:id", async (req, res) => {

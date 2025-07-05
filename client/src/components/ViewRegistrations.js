@@ -13,10 +13,10 @@ const ViewRegistrations = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const regRes = await axios.get(`http://localhost:5000/api/events/${id}/registrations`);
+        const regRes = await axios.get(`${process.env.REACT_APP_API_URL}/events/${id}/registrations`);
         setRegistrations(regRes.data);
 
-        const eventRes = await axios.get(`http://localhost:5000/api/events/${id}`);
+        const eventRes = await axios.get(`${process.env.REACT_APP_API_URL}/events/${id}`);
         setEventTitle(eventRes.data.title);
       } catch (error) {
         console.error("Error fetching registrations", error);

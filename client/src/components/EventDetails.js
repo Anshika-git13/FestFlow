@@ -12,17 +12,19 @@ const EventDetails = () => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-   
-    axios.get(`http://localhost:5000/api/events/${id}`)
+    axios.get ("https://festflow-us6s.onrender.com")
+
       .then(res => {
-        setEvent(res.data);
+        setEvent(res.data); 
         setLoading(false);
       })
       .catch(err => {
-        setError('Event not found');
+        console.error("Error fetching event:", err);
+        setError("Event not found");
         setLoading(false);
       });
   }, [id]);
+  
 
   if (loading) return <p>Loading event details...</p>;
   if (error) return <h2 className="not-found">{error}</h2>;

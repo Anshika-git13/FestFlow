@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "./Header.css";
 
 function Header({ onAddEventClick, onHomeClick }) {
@@ -9,6 +10,7 @@ function Header({ onAddEventClick, onHomeClick }) {
       <nav className="nav-links">
         <Link to="/" onClick={onHomeClick}>Home</Link>  {}
         <Link to="/about">About Us</Link>
+        <Link to="/recommend">Recommendations</Link>
         <button className="add-btn" onClick={onAddEventClick}>Add Event</button>
       </nav>
     </header>

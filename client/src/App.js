@@ -5,6 +5,9 @@ import Header from "./components/Header";
 import EventDetails from "./components/EventDetails";
 import About from "./components/About";
 import ViewRegistrations from "./components/ViewRegistrations"; 
+import EventRecommender from "./components/EventRecommender";
+
+
 
 function App() {
   const [showForm, setShowForm] = useState(false);
@@ -33,6 +36,8 @@ function App() {
         <Route path="/event/:id" element={<EventDetails />} />
         <Route path="*" element={<h1 style={{ padding: "2rem" }}>404 - Not Found</h1>} />
         <Route path="/events/:id/registrations" element={<ViewRegistrations />} />
+        <Route path="/recommend" element={<EventRecommender />} />
+        <Route path="*" element={<h1 style={{ padding: "2rem" }}>404 - Not Found</h1>} />
       </Routes>
     </>
   );

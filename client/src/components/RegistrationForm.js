@@ -25,7 +25,11 @@ const RegistrationForm = ({ eventName, eventId }) => {
     setMessage("");
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/events/${eventId}/register`, formData);
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/events/${eventId}/register`,
+        formData
+      );
+      
 
       setMessage(response.data.message || "Registration successful!");
       alert(`✅ Thanks for registering for ${eventName}, ${formData.name}!`);
