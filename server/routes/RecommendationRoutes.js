@@ -1,49 +1,33 @@
 const express = require("express");
-const { spawn } = require("child_process");
+const axios = require("axios");
 const router = express.Router();
 
-router.post("/predict-event", (req, res) => {
-  const input = JSON.stringify(req.body);
-  console.log(" Incoming request body:", input);
+router.post("/predict-event", async (req, res) => {
+  try {
+    const { department, interests, difficulty } = req.body;
 
-  const py = spawn("python", ["ml_model/predict_event.py"]);
+    const flaskPayload = {
+      department,
+      interests,
+      difficulty,
+    };
 
+    const response = await axios.post("http://localhost:5001/predict", flaskPayload);
 
-  let output = "";
-  let errorOutput = "";
+    res.status(200).json({
+      recommended_event: response.data.recommended_event,
+    });
 
-  py.stdout.on("data", (chunk) => {
-    output += chunk.toString();
-  });
-
-  py.stderr.on("data", (chunk) => {
-    errorOutput += chunk.toString();
-  });
-
-  py.stdin.write(input);
-  py.stdin.end();
-
-  py.on("close", (code) => {
-    console.log(" Python output:", output);
-    if (errorOutput) {
-      console.error(" Python error:", errorOutput);
-    }
-
-    try {
-      const result = JSON.parse(output);
-      res.status(200).json(result);
-    } catch (err) {
-      console.error(" Failed to parse JSON:", err);
-      res.status(500).json({
-        error: "Prediction failed",
-        details: err.toString(),
-        raw: output,
-      });
-    }
-  });
+  } catch (error) {
+    console.error("Error calling Flask API:", error.message);
+    res.status(500).json({ error: "Prediction failed" });
+  }
 });
 
 module.exports = router;
+
+
+
 
 
 
