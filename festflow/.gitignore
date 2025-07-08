@@ -1,0 +1,29 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+.env
+
+# === Python (ML backend) ===
+*.pyc
+__pycache__/
+*.pkl
+*.h5
+*.ipynb_checkpoints
+
+# === VS Code ===
+.vscode/
+
+# === OS Files ===
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+
+# === Misc ===
+.env.local
+.env.*.local
