@@ -1,0 +1,134 @@
+.badge-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.badge-notification-content {
+  background: rgba(26, 26, 26, 0.95);
+  border: 2px solid #b388ff;
+  border-radius: 15px;
+  padding: 25px;
+  width: 350px;
+  box-shadow: 0 10px 30px rgba(179, 136, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.badge-notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badge-notification-header h3 {
+  color: #b388ff;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(179, 136, 255, 0.1);
+  color: #b388ff;
+}
+
+.badges-list {
+  margin-bottom: 20px;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(45, 45, 45, 0.6);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.badge-item:last-child {
+  margin-bottom: 0;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #b388ff, #d3a4ff);
+  border-radius: 50%;
+  color: #000;
+}
+
+.badge-info h4 {
+  color: #b388ff;
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.badge-info p {
+  color: #ccc;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.badge-notification-footer {
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #2d2d2d;
+}
+
+.badge-notification-footer p {
+  color: #888;
+  margin: 0;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .badge-notification {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+  }
+  
+  .badge-notification-content {
+    width: auto;
+    padding: 20px;
+  }
+  
+  .badge-notification-header h3 {
+    font-size: 1.1rem;
+  }
+}

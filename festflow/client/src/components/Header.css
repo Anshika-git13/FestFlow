@@ -56,3 +56,51 @@
     background-color: #d3a4ff;
     transform: scale(1.05);
 }
+
+.profile-btn {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.profile-btn:hover {
+    color: #b388ff;
+    border-color: #b388ff;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.login-btn, .signup-btn {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.login-btn:hover {
+    color: #b388ff;
+    border-color: #b388ff;
+}
+
+.signup-btn {
+    background-color: #b388ff;
+    color: #000;
+    font-weight: 600;
+}
+
+.signup-btn:hover {
+    background-color: #d3a4ff;
+    transform: scale(1.05);
+}
+

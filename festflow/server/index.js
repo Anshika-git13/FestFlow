@@ -24,10 +24,14 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 const eventRoutes = require('./routes/EventRoutes');
-const recommendationRoutes = require("./routes/RecommendationRoutes");
+const registrationRoutes = require('./routes/RegistrationRoutes');
+const authRoutes = require('./routes/AuthRoutes');
+const userRoutes = require('./routes/UserRoutes');
 
 app.use("/api/events", eventRoutes);
-app.use("/api/recommend", recommendationRoutes);
+app.use("/api/registrations", registrationRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 
 

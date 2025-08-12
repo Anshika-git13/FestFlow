@@ -26,7 +26,7 @@ const RegistrationForm = ({ eventName, eventId }) => {
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_API_URL}/events/${eventId}/register`,
+        `http://localhost:5000/api/events/${eventId}/register`,
         formData
       );
       

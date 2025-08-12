@@ -12,8 +12,7 @@ const EventDetails = () => {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    axios.get ("https://festflow-us6s.onrender.com")
-
+    axios.get(`http://localhost:5000/api/events/${id}`)
       .then(res => {
         setEvent(res.data); 
         setLoading(false);
